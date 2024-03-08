@@ -1,0 +1,49 @@
+ show databases;
+
+create database IMDB;
+
+use IMDB;
+
+CREATE TABLE ACTOR (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fname VARCHAR(255) NOT NULL,
+    lname VARCHAR(255) NOT NULL,
+    gender CHAR(1)
+);
+
+CREATE TABLE MOVIE (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    year INT,
+    movie_rank DECIMAL(5, 2)
+);
+
+CREATE TABLE DIRECTOR (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fname VARCHAR(255) NOT NULL,
+    lname VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE CAST (
+    pid INT,
+    mid INT,
+    role VARCHAR(255),
+    FOREIGN KEY (pid) REFERENCES ACTOR(id),
+    FOREIGN KEY (mid) REFERENCES MOVIE(id)
+);
+
+CREATE TABLE MOVIE_DIRECTOR (
+    did INT,
+    mid INT,
+    FOREIGN KEY (did) REFERENCES DIRECTOR(id),
+    FOREIGN KEY (mid) REFERENCES MOVIE(id)
+);
+
+INSERT INTO ACTOR(id, fname, lname, gender)
+VALUES
+(1),
+(),
+();
+
+
+
